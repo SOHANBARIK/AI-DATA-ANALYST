@@ -16,6 +16,26 @@ st.set_page_config(page_title="AI Data Analyst", layout="wide")
 
 st.title("🤖 AI Data Analyst")
 st.write("Upload a CSV and ask questions in natural language!")
+st.markdown(
+        """
+        <style>
+        .fixed-bottom {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: black; /* Changed to black for contrast on light body */
+        background-color: rgb(240, 242, 246); /* Match body background */
+        padding: 5px 10px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+    </style>
+    <div class="fixed-bottom">made with ❤️ from Sohan </div>
+    """, 
+    unsafe_allow_html=True
+    )
 
 # Step 1: Upload CSV
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
@@ -102,4 +122,5 @@ if uploaded_file is not None:
                 st.code(sql_query, language="sql")
 
         else:
+
             st.error(f"API request failed: {response.text}")
