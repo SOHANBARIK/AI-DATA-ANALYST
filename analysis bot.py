@@ -77,7 +77,7 @@ if uploaded_file is not None:
         payload = {
             "model": "openai/gpt-3.5-turbo-instruct",  # you can swap with other models
             "prompt": prompt,
-            "max_tokens": 1500
+            "max_tokens": 5000
         }
 
         response = requests.post(API_URL, headers=headers, json=payload)
@@ -124,3 +124,4 @@ if uploaded_file is not None:
         else:
 
             st.error(f"API request failed: {response.text}")
+
